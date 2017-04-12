@@ -13,3 +13,5 @@ RUN apk add --update --no-cache gcc musl-dev git python ${PACKAGES} && \
     yes | gcloud components install app-engine-go && \
     chmod 755 ${CLOUD_SDK}/platform/google_appengine/goapp && \
     apk del ${PACKAGES} --no-cache && rm -rf /tmp/* /var/cache/apk/*
+
+ENV GOROOT=/google-cloud-sdk/platform/google_appengine/goroot
