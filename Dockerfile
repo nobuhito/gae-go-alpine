@@ -1,4 +1,4 @@
-FROM golang:1.7-alpine
+FROM golang:1.6-alpine
 MAINTAINER Nobuhito SATO <nobuhito.sato@gmail.com>
 
 ENV SDK=https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.zip \
@@ -13,5 +13,3 @@ RUN apk add --update --no-cache gcc musl-dev git python ${PACKAGES} && \
     yes | gcloud components install app-engine-go && \
     chmod 755 ${CLOUD_SDK}/platform/google_appengine/goapp && \
     apk del ${PACKAGES} --no-cache && rm -rf /tmp/* /var/cache/apk/*
-
-ENV GOROOT=/google-cloud-sdk/platform/google_appengine/goroot
