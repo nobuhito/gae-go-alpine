@@ -5,7 +5,8 @@ ENV SDK=https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.zip \
     PACKAGES="curl unzip" \
     CLOUD_SDK=/google-cloud-sdk \
     PATH=/google-cloud-sdk/bin:${PATH} \
-    GOROOT=/usr/local/go
+    GOROOT=/google-cloud-sdk/platform/google_appengine/goroot \
+    GOPATH=/google-cloud-sdk/platform/google_appengine/gopath
 
 RUN apk add --update --no-cache gcc musl-dev git python ${PACKAGES} && \
     curl -fo /tmp/gae.zip ${SDK} && unzip -q /tmp/gae.zip -d /tmp/ && mv /tmp/google-cloud-sdk ${CLOUD_SDK} && \
