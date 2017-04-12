@@ -11,4 +11,5 @@ RUN apk add --update --no-cache git python ${PACKAGES} && \
     curl -fo /tmp/gae.zip ${SDK} && unzip -q /tmp/gae.zip -d /tmp/ && mv /tmp/google-cloud-sdk ${CLOUD_SDK} && \
     ${CLOUD_SDK}/install.sh --usage-reporting=true --path-update=true --disable-installation-options --bash-completion=false && \
     yes | gcloud components install app-engine-go && \
+    chmod 755 ${CLOUD_SDK}/platform/google_appengine/goapp && \
     apk del ${PACKAGES} --no-cache && rm -rf /tmp/* /var/cache/apk/*
