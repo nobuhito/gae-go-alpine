@@ -7,7 +7,7 @@ ENV SDK=https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.zip \
     PATH=/google-cloud-sdk/bin:${PATH} \
     GOROOT=/usr/local/go
 
-RUN apk add --update --no-cache git python ${PACKAGES} && \
+RUN apk add --update --no-cache gcc musl-dev git python ${PACKAGES} && \
     curl -fo /tmp/gae.zip ${SDK} && unzip -q /tmp/gae.zip -d /tmp/ && mv /tmp/google-cloud-sdk ${CLOUD_SDK} && \
     ${CLOUD_SDK}/install.sh --usage-reporting=true --path-update=true --disable-installation-options --bash-completion=false && \
     yes | gcloud components install app-engine-go && \
