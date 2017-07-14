@@ -13,5 +13,5 @@ RUN apk add --update --no-cache gcc musl-dev git python ${PACKAGES} && \
     ${CLOUD_SDK}/install.sh --usage-reporting=true --path-update=true --disable-installation-options --bash-completion=false && \
     yes | gcloud components install app-engine-go && \
     chmod 755 ${CLOUD_SDK}/platform/google_appengine/goapp && \
-    apk del ${PACKAGES} --no-cache && rm -rf /tmp/* /var/cache/apk/* \
+    apk del ${PACKAGES} --no-cache && rm -rf /tmp/* /var/cache/apk/* && \
     go get github.com/nobuhito/gochi
